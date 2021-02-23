@@ -34,6 +34,42 @@ main{
 
 
 }
+.display-tweets:hover {
+  
+  box-shadow: 8px 8px lightblue;
+}
+
+
+.display-tweets{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color:lightgray;
+  
+}
+#user-info{
+  display: flex;
+  justify-content: flex-start;
+}
+
+#tweet-header{
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  
+}
+#tweet-footer{
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+#display-tweet-text{
+  border: none;
+  border-bottom: 5px;
+  background-color:lightgray;
+  padding: 12px 20px;
+}
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions

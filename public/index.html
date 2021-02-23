@@ -33,7 +33,7 @@
     </nav>
 
 
-    <header>
+    <header id="page-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -51,7 +51,6 @@
 
       <section class="new-tweet">
         <h4>Make a New Tweet</h4>
-
         <form method="POST" action="/tweets">
           <label for="tweet-text"></label>
           <textarea placeholder="What are you humming about?" name="text" id="tweet-text"></textarea>
@@ -60,7 +59,29 @@
             <output id="counter" name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
 
+
+      <hr> 
+
+
+      <section class="display-tweets">
+        <article>
+          <header id="tweet-header">
+            <div id="user-info">
+              <img src="/images/profile-hex.png" width="75" height="75"> 
+              <h5>User One</h5>
+            </div>
+            <p>@UserOne</p>
+          </header>
+
+          <p style="margin-left: 10px;">This is the tweet text</p>
+          <hr>
+          <footer id="tweet-footer">
+            <p>10 Days Ago</p>
+            <img src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_favorite_48px-512.png" width="30" height="30"/>
+          </footer>
+        </article>
       </section>
 
 
