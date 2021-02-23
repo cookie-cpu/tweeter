@@ -24,9 +24,15 @@ body {
 
 
 main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  padding: 1.5em;
+  background-color: #f4f1ec;
 
 
-  
+
 }
 
 /*
