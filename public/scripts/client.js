@@ -3,8 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
-
+//TEMP TESTING DATA
 const data = [
   {
     "user": {
@@ -22,7 +21,8 @@ const data = [
     "user": {
       "name": "Descartes",
       "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
+      "handle": "@rd"
+    },
     "content": {
       "text": "Je pense , donc je suis"
     },
@@ -34,8 +34,10 @@ const data = [
 
 
 
-const createTweetElement = function(tweet){
-  const $tweet = (`
+
+//Takes in tweetdata object and renders in into HTML
+const createTweetElement = function (tweet) {
+  return (`
   <article id="tweet-article">
     <header id="tweet-header">
       <div id="user-info">
@@ -46,23 +48,41 @@ const createTweetElement = function(tweet){
     </header>
  
     <p id="tweet-content">${tweet.content.text}</p>
-    <hr>
+    
     <footer id="tweet-footer">
       <p>${tweet.created_at}</p>
     </footer>
   </article>
+  <hr>
  `)
-  return $tweet;
 }
 
-const renderTweets = function(tweets){
-  for (let element of tweets){
+//Loops through all tweetdata objects in the DB and converts each one to html before appending to the document
+const renderTweets = function (tweets) {
+  for (let element of tweets) {
     let tweet = (createTweetElement(element))
     $('.display-tweets').append(tweet);
   }
 }
 
-
-$(document).ready(function() {
+//This code runs once the HTML document has loaded
+$(document).ready(function () {
+  //Appends tweetdata to document in HTML format
   renderTweets(data)
+  $("#new-tweet-form").submit(function (event) {
+    event.preventDefault();
+    let serialData = $(this).serialize();
+    console.log(serialData)
+    $.ajax(
+      "/tweets",
+      {
+        method: "POST",
+        data: serialData
+      }
+    ).then(
+      console.log("this worked!")
+
+    )
+  
+  });
 });

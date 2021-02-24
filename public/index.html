@@ -51,11 +51,11 @@
 
       <section class="new-tweet">
         <h4>Make a New Tweet</h4>
-        <form method="POST" action="/tweets">
+        <form id="new-tweet-form" method="POST" action="/tweets">
           <label for="tweet-text"></label>
           <textarea placeholder="What are you humming about?" name="text" id="tweet-text"></textarea>
           <div id="new-tweet-footer">
-            <button id="tweet-button"type="submit">Tweet</button>
+            <button id="tweet-button" type="submit">Tweet</button>
             <output id="counter" name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
@@ -76,16 +76,15 @@
             <p>@UserOne</p>
           </header>
           <p id="tweet-content">This is the tweet text</p>
-          <hr>
+          
           <footer id="tweet-footer">
             <p>10 Days Ago</p>
-            <img src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_favorite_48px-512.png" width="30" height="30"/>
           </footer>
         </article>
 
 
 
-        
+
       </section>
 
 
