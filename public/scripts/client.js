@@ -38,23 +38,45 @@ const renderTweets = function (tweets) {
 }
 
 
+//Function for validating tweet text
+function validateText(text) {
+  if (text === "" || text === null || text.length > 140 || text.length === 0){
+    return false
+  } else {
+    return true
+   }
+};
+
 //Uses an ajax POST request to save the form data into the database
 const submitTweet = function(){
   $("#new-tweet-form").submit(function (event) {
     event.preventDefault();
-    let serialData = $(this).serialize();
-    console.log(`Form data: ${serialData}`)
-    $.ajax(
-      "/tweets",
-      {
-        method: "POST",
-        data: serialData
-      }
-    ).then(
-      console.log("New tweet POST success"),
-    )
+
+    let value = ($("#tweet-text").val())
+    if (validateText(value)){
+
+      
+      let serialData = $(this).serialize();
+      console.log(`Form data: ${serialData}`)
+      $.ajax(
+        "/tweets",
+        {
+          method: "POST",
+          data: serialData
+        }
+      ).then(
+        console.log("New tweet POST success"),
+      )
+    } else {
+      alert("Tweet not valid")
+    }
+   
+   
+    
   });
 }
+
+
 
 
 //Uses an ajax GET request to pull the tweet database and render the tweets
@@ -65,11 +87,16 @@ const loadTweets = function(data){
       method: "GET",
       data: data
     }
-  ).then(
+  )
+  .then(
     (data) => renderTweets(data),
   )
 }
+
 loadTweets()
+
+
+ 
 
 
 //This code runs once the HTML document has loaded
