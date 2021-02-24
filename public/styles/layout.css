@@ -30,10 +30,17 @@ main{
   width: auto;
   padding: 1.5em;
   background-color: #f4f1ec;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+}
 
 
+#tweet-article{
 
 }
+
 .display-tweets:hover {
   
   box-shadow: 8px 8px lightblue;
@@ -51,6 +58,14 @@ main{
 #user-info{
   display: flex;
   justify-content: flex-start;
+}
+#user-image{
+  width: 50;
+  height: 50;
+}
+
+#tweet-content{
+  margin-left: 10px;
 }
 
 #tweet-header{
