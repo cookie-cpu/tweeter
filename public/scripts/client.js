@@ -3,36 +3,6 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-//TEMP TESTING DATA
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
-
-
-
 
 
 //Takes in tweetdata object and renders in into HTML
@@ -57,6 +27,8 @@ const createTweetElement = function (tweet) {
  `)
 }
 
+
+
 //Loops through all tweetdata objects in the DB and converts each one to html before appending to the document
 const renderTweets = function (tweets) {
   for (let element of tweets) {
@@ -65,14 +37,13 @@ const renderTweets = function (tweets) {
   }
 }
 
-//This code runs once the HTML document has loaded
-$(document).ready(function () {
-  //Appends tweetdata to document in HTML format
-  renderTweets(data)
+
+//Uses an ajax POST request to save the form data into the database
+const submitTweet = function(){
   $("#new-tweet-form").submit(function (event) {
     event.preventDefault();
     let serialData = $(this).serialize();
-    console.log(serialData)
+    console.log(`Form data: ${serialData}`)
     $.ajax(
       "/tweets",
       {
@@ -80,9 +51,32 @@ $(document).ready(function () {
         data: serialData
       }
     ).then(
-      console.log("this worked!")
-
+      console.log("New tweet POST success"),
     )
-  
   });
+}
+
+
+//Uses an ajax GET request to pull the tweet database and render the tweets
+const loadTweets = function(data){
+  $.ajax(
+    "/tweets",
+    {
+      method: "GET",
+      data: data
+    }
+  ).then(
+    (data) => renderTweets(data),
+  )
+}
+loadTweets()
+
+
+//This code runs once the HTML document has loaded
+$(document).ready(function () {
+
+  
+  submitTweet()
+
+
 });
