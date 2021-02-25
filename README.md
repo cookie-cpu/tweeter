@@ -15,3 +15,11 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+# Screenshots
+
+![image1](https://raw.githubusercontent.com/cookie-cpu/tweeter/master/docs/1.png)
+![image2](https://github.com/cookie-cpu/tweeter/blob/master/docs/2.png)
+![image3](https://github.com/cookie-cpu/tweeter/blob/master/docs/3.png)
+![image4](https://github.com/cookie-cpu/tweeter/blob/master/docs/4.png)
+![image5](https://github.com/cookie-cpu/tweeter/blob/master/docs/5.png)
