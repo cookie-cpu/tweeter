@@ -54,8 +54,7 @@ const submitTweet = function(){
 
     let value = ($("#tweet-text").val())
     if (validateText(value)){
-
-      
+  
       let serialData = $(this).serialize();
       console.log(`Form data: ${serialData}`)
       $.ajax(
@@ -64,35 +63,42 @@ const submitTweet = function(){
           method: "POST",
           data: serialData
         }
-      ).then(
+      ).then( () => {
         console.log("New tweet POST success"),
-      )
+        $("article").remove(),
+        $("#tweet-text").val(""),
+        loadTweets()
+      })
+
     } else {
       alert("Tweet not valid")
     }
-   
-   
-    
   });
 }
 
 
-
-
-//Uses an ajax GET request to pull the tweet database and render the tweets
-const loadTweets = function(data){
-  $.ajax(
-    "/tweets",
-    {
-      method: "GET",
-      data: data
-    }
-  )
-  .then(
-    (data) => renderTweets(data),
-  )
+const loadTweets = function(){
+  $.ajax({
+    url: "/tweets",
+    method: "GET",
+    dataType: "JSON",
+    success: (tweets)=>{renderTweets(tweets)}
+  })
 }
 
+//Uses an ajax GET request to pull the tweet database and render the tweets
+// const loadTweets = function(data){
+//   $.ajax(
+//     "/tweets",
+//     {
+//       method: "GET",
+//       data: data
+//     }
+//   )
+//   .then(
+//     renderTweets(data)
+//   )
+// }
 loadTweets()
 
 
