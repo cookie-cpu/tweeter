@@ -47,12 +47,24 @@ function validateText(text) {
    }
 };
 
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+
 //Uses an ajax POST request to save the form data into the database
 const submitTweet = function(){
   $("#new-tweet-form").submit(function (event) {
-    event.preventDefault();
+    event.preventDefault(); //prevents new page load on submit
 
-    let value = ($("#tweet-text").val())
+    let value = ($("#tweet-text").val())//.text()
+
+    // let value2 = ($("#tweet-text").val())
+    // console.log(`with .text: ${value} \n without .text: ${value2}`)
+
+
     if (validateText(value)){
   
       let serialData = $(this).serialize();
@@ -64,19 +76,22 @@ const submitTweet = function(){
           data: serialData
         }
       ).then( () => {
+        //removes all tweets from page before rerendering with new data
         console.log("New tweet POST success"),
+        $("#error-message").slideUp(),
         $("article").remove(),
         $("#tweet-text").val(""),
         loadTweets()
       })
 
     } else {
-      alert("Tweet not valid")
+      $("#error-message").slideDown(500)
+      //alert("Tweet not valid")
     }
   });
 }
 
-
+//Uses an ajax GET request to pull the tweet database and render the tweets
 const loadTweets = function(){
   $.ajax({
     url: "/tweets",
@@ -85,31 +100,13 @@ const loadTweets = function(){
     success: (tweets)=>{renderTweets(tweets)}
   })
 }
-
-//Uses an ajax GET request to pull the tweet database and render the tweets
-// const loadTweets = function(data){
-//   $.ajax(
-//     "/tweets",
-//     {
-//       method: "GET",
-//       data: data
-//     }
-//   )
-//   .then(
-//     renderTweets(data)
-//   )
-// }
+//Loads tweets upon pageload
 loadTweets()
 
 
  
-
-
 //This code runs once the HTML document has loaded
 $(document).ready(function () {
-
-  
+  $("#error-message").hide()
   submitTweet()
-
-
 });

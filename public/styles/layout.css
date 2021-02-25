@@ -35,7 +35,13 @@ main{
   display: flex;
   justify-content: space-between;
 }
-
+.error-message{
+  padding: 10px;
+  background-color: red;
+  color: black;
+  font-size: 36px;
+  font-family: 'Bungee', cursive;
+}
 
 #tweet-article{
 
