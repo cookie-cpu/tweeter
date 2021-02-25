@@ -18,8 +18,17 @@ This repository is the starter code for the project: Students will fork and clon
 
 # Screenshots
 
+## Compose Tweet Box with functioning realtime character counter
 ![image1](https://raw.githubusercontent.com/cookie-cpu/tweeter/master/docs/1.png)
+
+## Example of Desktop layout using media query to change CSS dynamically
 ![image2](https://github.com/cookie-cpu/tweeter/blob/master/docs/2.png)
+
+## Example of users post appending to the top of the feed with accurate post time
 ![image3](https://github.com/cookie-cpu/tweeter/blob/master/docs/3.png)
+
+## Example of hover functionality which reveals icons and adds a drop shadow for effect
 ![image4](https://github.com/cookie-cpu/tweeter/blob/master/docs/4.png)
+
+## Example of Site Scaling for smaller screen
 ![image5](https://github.com/cookie-cpu/tweeter/blob/master/docs/5.png)
