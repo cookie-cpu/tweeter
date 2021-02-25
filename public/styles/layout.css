@@ -35,14 +35,27 @@ main{
 h5{
   padding-left: .5em;
 }
+
 .container{
   display: flex;
   justify-content: space-between;
+}
+
+#tweet-avatar{
+  height: 60px;
+}
+
+#page-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .error-message{
   padding: 10px;
   background-color: red;
   color: black;
+  border: dotted black;
+  border-width: 2.5px;
   font-size: 36px;
   font-family: 'Bungee', cursive;
 }
@@ -51,8 +64,8 @@ h5{
   background-color:lightgray;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  border: black;
-  border-width: 100px;
+  border: solid black;
+  border-width: 2.5px;
 }
 
 
@@ -111,6 +124,27 @@ h5{
   background-color:lightgray;
   padding: 12px 20px;
 }
+
+@media only screen and (min-width: 1024px) {
+  .container {
+
+    width: 75%; 
+    /* position: absolute; */
+    margin-top: 10%;
+    margin-left: 25%; 
+   }
+   #page-header {
+    position: fixed;
+    display: inline-block;
+    border: solid black;
+    width: 75%;
+    margin-top: 5%;
+  }
+  
+ }
+
+
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
