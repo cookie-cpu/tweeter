@@ -62,12 +62,13 @@ const createTweetElement = function (tweet) {
     </header>
  
     <p id="tweet-content">${tweet.content.text}</p>
-    
+    <hr>
     <footer id="tweet-footer">
       <p>Posted ${timeDifference(Date.now(), tweet.created_at)}</p>
     </footer>
   </article>
   <hr>
+ 
  `)
 }
 
@@ -124,6 +125,7 @@ const submitTweet = function(){
         console.log("New tweet POST success"),
         $("#error-message").slideUp(),
         $("article").remove(),
+        $("hr").remove(),
         $("#tweet-text").val(""),
         loadTweets()
       })

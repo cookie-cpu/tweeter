@@ -31,6 +31,10 @@ main{
   padding: 1.5em;
   background-color: #f4f1ec;
 }
+
+h5{
+  padding-left: .5em;
+}
 .container{
   display: flex;
   justify-content: space-between;
@@ -45,11 +49,25 @@ main{
 
 #tweet-article{
   background-color:lightgray;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  border: black;
+  border-width: 100px;
 }
+
+
+.icon-hover {
+  visibility:hidden;
+}
+.icon-hover:hover {
+  visibility: visible;
+}
+
+
 
 #tweet-article:hover {
   
-  box-shadow: 8px 8px lightblue;
+  box-shadow: 10px 10px lightblue;
 }
 
 
@@ -82,7 +100,8 @@ main{
   
 }
 #tweet-footer{
-  padding: 15px;
+  padding-left: 0.5em;
+  padding-bottom: 0.3em;
   display: flex;
   justify-content: space-between;
 }
