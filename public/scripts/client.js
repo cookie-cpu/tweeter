@@ -5,20 +5,46 @@
  */
 
  //Turns UNIX timestamp into a readable date
-const dateFormatter = function(unixtime){
- 
-  let date = new Date(unixtime * 1000);
-  // Hours part from the timestamp
-  let hours = date.getHours();
-  // Minutes part from the timestamp
-  let minutes = "0" + date.getMinutes();
-  // Seconds part from the timestamp
-  let seconds = "0" + date.getSeconds();
+// const dateFormatter = function(unixtime){
+//   let date = new Date(unixtime * 1000);
+//   let hours = date.getHours();
+//   let minutes = "0" + date.getMinutes();
+//   let seconds = "0" + date.getSeconds();
+//   let formattedTime = hours + ':' + minutes.substr(-2);
+//   return(`Posted at ${formattedTime}`);
+// }
+
+function timeDifference(current, previous) {
+  let msPerMinute = 60 * 1000;
+  let msPerHour = msPerMinute * 60;
+  let msPerDay = msPerHour * 24;
+  let msPerMonth = msPerDay * 30;
+  let msPerYear = msPerDay * 365;
+  let elapsed = current - previous;
+
+  if (elapsed < msPerMinute) {
+       return Math.round(elapsed/1000) + ' seconds ago';   
+  }
   
-  // Will display time in 10:30:23 format
-  let formattedTime = hours + ':' + minutes.substr(-2);
+  else if (elapsed < msPerHour) {
+       return Math.round(elapsed/msPerMinute) + ' minutes ago';   
+  }
   
-  return(`Posted at ${formattedTime}`);
+  else if (elapsed < msPerDay ) {
+       return Math.round(elapsed/msPerHour ) + ' hours ago';   
+  }
+
+  else if (elapsed < msPerMonth) {
+       return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';   
+  }
+  
+  else if (elapsed < msPerYear) {
+       return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';   
+  }
+  
+  else {
+       return 'approximately ' + Math.round(elapsed/msPerYear ) + ' years ago';   
+  }
 }
 
 
@@ -38,7 +64,7 @@ const createTweetElement = function (tweet) {
     <p id="tweet-content">${tweet.content.text}</p>
     
     <footer id="tweet-footer">
-      <p>${dateFormatter(tweet.created_at)}</p>
+      <p>Posted ${timeDifference(Date.now(), tweet.created_at)}</p>
     </footer>
   </article>
   <hr>
@@ -118,9 +144,9 @@ const loadTweets = function(){
     success: (tweets)=>{renderTweets(tweets)}
   })
 }
+
 //Loads tweets upon pageload
 loadTweets()
-
 
  
 //This code runs once the HTML document has loaded
