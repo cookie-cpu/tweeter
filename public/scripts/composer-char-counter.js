@@ -6,13 +6,13 @@ $(document).ready(function() {
 });
 
 
-const onTextChange = function(){
-  const value = $(this).val()
+const onTextChange = function() {
+  const value = $(this).val();
 
-  $("#counter").html(140 - value.length)
-  if (value.length > 140){
+  $("#counter").html(140 - value.length);
+  if (value.length > 140) {
     $("#counter").css("color", "red");
   } else {
     $("#counter").css("color", "black");
   }
-}
+};
