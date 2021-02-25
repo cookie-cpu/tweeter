@@ -5,22 +5,12 @@
   justify-content: space-around;
   padding: 1em;
   background-color:lightgray;
-
-
-
 }
-
-
 
 h4 {
   align-self: start;
   padding-left: 1em;
-  
 }
-
-
-
-
 
 #tweet-text{
   border: none;
@@ -35,7 +25,6 @@ h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 #counter {
@@ -49,5 +38,4 @@ h4 {
   margin-bottom: 10px;
   background-color: #4056A1 ;
   color:azure
-  
 }
