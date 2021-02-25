@@ -65,6 +65,11 @@ const createTweetElement = function (tweet) {
     <hr>
     <footer id="tweet-footer">
       <p>Posted ${timeDifference(Date.now(), tweet.created_at)}</p>
+      <a class="icon-hover">
+              <i class="fa fa-flag" id="report"></i>
+              <i class="fa fa-retweet" id="retweet"></i>
+              <i class="fa fa-heart" id="love"></i> 
+            </a>
     </footer>
   </article>
   <hr>

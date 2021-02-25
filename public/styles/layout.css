@@ -70,17 +70,19 @@ h5{
 
 
 .icon-hover {
-  visibility:hidden;
-}
-.icon-hover:hover {
-  visibility: visible;
+  display:none;
+  margin: 0.5em;
 }
 
+#tweet-article:hover a {
+  display: block;
+}
 
 
 #tweet-article:hover {
   
   box-shadow: 10px 10px lightblue;
+  
 }
 
 
