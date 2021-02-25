@@ -44,10 +44,10 @@ main{
 }
 
 #tweet-article{
-
+  background-color:lightgray;
 }
 
-.display-tweets:hover {
+#tweet-article:hover {
   
   box-shadow: 8px 8px lightblue;
 }
@@ -57,8 +57,8 @@ main{
   width: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  background-color:lightgray;
+  justify-content: space-between;
+  background-color: #f4f1ec;
   
 }
 #user-info{

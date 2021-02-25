@@ -5,6 +5,7 @@ nav{
   width: 100%;
   padding: 1em;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 120px;
   background-color: #4056A1 ;
